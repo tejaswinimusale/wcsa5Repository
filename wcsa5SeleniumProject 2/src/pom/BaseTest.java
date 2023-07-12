@@ -1,4 +1,4 @@
-package keywardDrivenFramework;
+package pom;
 
 import java.io.IOException;
 import java.time.Duration;
