@@ -1,19 +1,27 @@
 package pom;
 
-
 import java.io.IOException;
 
-public class ValidLoginTestCase extends BaseTest {
+public class ValidLoginTestCase extends BaseTest{
 	
-	public static void main(String[] args) throws IOException {
+	private static final String PROP_PATH = null;
+
+	public static void main(String[] args) throws IOException, InterruptedException {
+		
 		BaseTest bt = new BaseTest();
 		bt.setUp();
 		
+		LoginPage lp = new LoginPage(driver);
+		HomePage hp = new HomePage(driver);
 		Flib flib = new Flib();
 		
-		// to call the webelements of login page create the obj of loginpage class
-		LoginPage lp = new LoginPage(driver);
-	    lp.validLoginMethod(flib.readPropertyData(PROP_PATH,"Username"),flib.readPropertyData(PROP_PATH, "Password"));
+		lp.validLogin(flib.readPropertyData(PROP_PATH,"username"),flib.readPropertyData(PROP_PATH,"password"));
+		
+		Thread.sleep(2000);
+		hp.logOutMethod();
+		Thread.sleep(2000);
+	  	
+		bt.tearDown();
 	}
 
 }

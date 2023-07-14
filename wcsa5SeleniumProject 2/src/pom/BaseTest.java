@@ -61,4 +61,9 @@ public class BaseTest extends Flib implements IautoConstant{
 		driver.quit();
 	}
 
+	public void setUp() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
