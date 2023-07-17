@@ -8,22 +8,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class BaseTest extends Flib implements IautoConstant{
+import keywardDrivenFramework.IautoConstant;
 
-	private static final String PROP_PATH = null;
-	private static final String CHROME_KEY = null;
-	private static final String CHROME_PATH = null;
-	private static final String GECKO_KEY = null;
-	private static final String GECKO_PATH = null;
-	private static final String EDGE_KEY = null;
-	private static final String EDGE_PATH = null;
+public class BaseTest extends Flib implements IautoConstant {
+
 	static WebDriver driver;
 
-	public void openBrowser() throws IOException
+	public void setUp() throws IOException // open Browser
 	{
 		Flib flib = new Flib();
-		String browserValue = flib.readPropertyData(PROP_PATH,"browser");
-		String url = flib.readPropertyData(PROP_PATH,"url");
+		String browserValue = flib.readPropertyData(PROP_PATH, "browser");
+		String url = flib.readPropertyData(PROP_PATH, "url");
 
 		if(browserValue.equals("chrome"))
 		{
@@ -56,14 +51,9 @@ public class BaseTest extends Flib implements IautoConstant{
 
 	}
 
-	public void closeBrowser()
+	public void tearDown()
 	{
 		driver.quit();
-	}
-
-	public void setUp() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
