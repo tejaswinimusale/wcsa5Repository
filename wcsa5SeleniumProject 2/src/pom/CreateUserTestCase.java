@@ -1,9 +1,10 @@
 package pom;
 
 
+
 import java.io.IOException;
 
-public class CreateUserTestCase extends BaseTest {
+public class CreateUserTeatCase extends BaseTest {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -23,6 +24,7 @@ public class CreateUserTestCase extends BaseTest {
 		hp.usersModuleMethod();
 		
 		Thread.sleep(2000);
+
 		UserListPage ulp = new UserListPage(driver);
 	     
 		String usn = flib.readExcelData(EXCEL_PATH,"createusers",1, 0);
